@@ -1,70 +1,59 @@
-from kivy.lang import Builder
-from kivymd.uix.button import MDButton
-from kivymd.uix.boxlayout import MDBoxLayout
+# Application base
 from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
-from kivymd.uix.responsivelayout import MDResponsiveLayout
-from kivymd.theming import ThemeManager
-from kivymd.uix.screen import MDScreen
+from kivy.lang import Builder
 from kivy.core.window import Window
 
+# Theme Manager
+from kivymd.theming import ThemeManager
 
-Window.titlebar_widget = False
+# UI/UX components
+from kivymd.uix.screen import MDScreen
+from kivymd.uix.screenmanager import ScreenManager
+from kivymd.uix.responsivelayout import MDResponsiveLayout
+from kivymd.uix.button import MDButton
+from kivymd.uix.label import MDLabel
 
-Window.minimum_height = 667
-Window.minimum_width = 375
-
-KV = '''
-#:import get_color_from_hex kivy.utils.get_color_from_hex
-
-<ResponsiveButton@MDButton>:
-    md_bg_color: app.theme_cls.surfaceColor
-    style: "elevated"
-    pos_hint: {"center_x": .5, "center_y": .5}
-
-    MDButtonIcon:
-        icon: "plus"
-
-    MDButtonText:
-        text: "Elevated"
-
-<MobileView>
-    ResponsiveButton:
-        font_size: "20sp"
-
-<TabletView>
-    ResponsiveButton:
-        font_size: "30sp"
-
-<DesktopView>
-    ResponsiveButton:
-        font_size: "40sp"
-
-ResponsiveView:
-    name: "responsive_view"
-'''
-
-
+# Mobile Screen
 class MobileView(MDScreen):
     pass
 
+
+# Tablet Screen
 class TabletView(MDScreen):
     pass
 
+
+# Desktop Screen
 class DesktopView(MDScreen):
     pass
 
+
+# Class ResponsiveLayout
 class ResponsiveView(MDResponsiveLayout, MDScreen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, **kw):
+        super().__init__(**kw)
         self.mobile_view = MobileView()
         self.tablet_view = TabletView()
         self.desktop_view = DesktopView()
 
+
 class App(MDApp):
     def build(self):
-        # Ensure that the theme is properly set, you can also choose 'Dark' theme here
-        self.theme_cls.primary_palette = "Green"
-        return Builder.load_string(KV)
+        global sm
+        sm = ScreenManager()
+        self.theme_cls.primary_palette = "Red"
+        self.titlebar_widget = False
+        Window.minimum_height = 667
+        Window.minimum_width = 375
+        self.title = "Auto Ai Comment"
 
-App().run()
+        sm.add_widget(Builder.load_file('templates/main.kv'))
+        sm.add_widget(Builder.load_file('templates/login.kv'))
+        return sm
+
+    def load_screen(self, screen):
+        sm.current = screen
+        
+        
+if __name__ == "__main__":
+    App().run()
