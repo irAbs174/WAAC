@@ -1,17 +1,25 @@
 # Application base
-from kivymd.app import MDApp
-from kivy.lang import Builder
+from kivy.core.text import LabelBase
 from kivy.core.window import Window
+from kivy.metrics import (dp, sp)
+from kivy.factory import Factory
+from kivy.lang import Builder
+from kivymd.app import MDApp
 
 # Theme Manager
 from kivymd.theming import ThemeManager
 
 # UI/UX components
 from kivymd.uix.screen import MDScreen
-from kivymd.uix.screenmanager import ScreenManager
+from kivymd.uix.screenmanager import ScreenManager, MDScreenManager
 from kivymd.uix.responsivelayout import MDResponsiveLayout
 from kivymd.uix.button import MDButton
 from kivymd.uix.label import MDLabel
+
+# Rtl
+from bidi.algorithm import get_display
+from arabic_reshaper import reshape
+
 
 # Mobile Screen
 class MobileView(MDScreen):
@@ -39,9 +47,24 @@ class ResponsiveView(MDResponsiveLayout, MDScreen):
 
 class App(MDApp):
     def build(self):
+
+                # Register the custom font
+        LabelBase.register(
+            name="nasalization",
+            fn_regular="assets/fonts/nasalization.otf",
+        )
+
+        self.theme_cls.font_styles["nasalization"] = {
+            "large": {
+                "line-height": 1.64,
+                "font-name": "nasalization",
+            },
+        }
+        
         global sm
         sm = ScreenManager()
-        self.theme_cls.primary_palette = "Blue"
+        self.theme_cls.theme_style = "Dark"
+        self.theme_cls.primary_palette = "Orange"
         self.titlebar_widget = False
         Window.minimum_height = 667
         Window.minimum_width = 375
@@ -50,10 +73,28 @@ class App(MDApp):
         sm.add_widget(Builder.load_file('templates/main.kv'))
         sm.add_widget(Builder.load_file('templates/login.kv'))
         return sm
-
+        
+    # Load Screen function
     def load_screen(self, screen):
         sm.current = screen
-        
+
+    # Fix arabic chars
+    def persian(self, txt):
+        reshaped_text = reshape(txt)
+        bidi_text = get_display(reshaped_text)
+        return bidi_text
+
+    # Switch theme dark/light
+    def switch_theme(self):
+        custom_sheet = None
+
+        self.theme_cls.theme_style = (
+            "Dark" if self.theme_cls.theme_style == "Light" else "Light"
+        )
+        self.theme_cls.primary_palette = (
+                    "Blue" if self.theme_cls.primary_palette == "Orange" else "Orange"
+                )
+
 
 if __name__ == "__main__":
     App().run()
