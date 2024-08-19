@@ -1,28 +1,37 @@
-#:import get_color_from_hex kivy.utils.get_color_from_hex
+<TopAppBar@MDCard>:
+    padding: "4dp"
+    size_hint_x: .995
+    size_hint_y: .06
+    pos_hint: {"center_y": .5, "center_x": .5, "top": .995}
 
-<TestBtn@MDButton>:
-    pos_hint: {"center_x": .5, "center_y": .5}
+    MDRelativeLayout:
 
-    on_release:
-        app.load_screen(screen="login")
+        MDIconButton:
+            icon: "dots-vertical"
+            pos_hint: {"left": 1, "center_y": .5}
 
-    MDButtonIcon:
-        icon: "plus"
+        MDLabel:
+            text: "Test"
+            adaptive_size: True
+            color: "grey"
+            pos_hint: {"center_y": .5, "center_x": .5}
+            bold: True
+
+        MDIconButton:
+            pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .94}
+            icon: "account"
+
+        MDIconButton:
+            pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .98}
+            icon: "account"
+                
 
 <MobileView>
-    TestBtn:
-        MDButtonText:
-            text: "Mobile"
 
 <TabletView>
-    TestBtn:
-        MDButtonText:
-            text: "Tablet"
+    TopAppBar:
 
 <DesktopView>
-    TestBtn:
-        MDButtonText:
-            text: "Desktop"
 
 ResponsiveView:
     name: "main"

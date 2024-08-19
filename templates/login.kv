@@ -1,6 +1,6 @@
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 
-<LoveBtn@MDButton>:
+<LoginBtn@MDButton>:
     pos_hint: {"center_x": .5, "center_y": .5}
 
     on_release:
@@ -10,17 +10,14 @@
         icon: "plus"
 
 <MobileView>
-    LoveBtn:
+    LoginBtn:
         MDButtonText:
             text: "Mobile main"
 
 <TabletView>
-    LoveBtn:
+    LoginBtn:
         MDButtonText:
             text: "Tablet main"
-
-<DesktopView>
-    LoveBtn:
         MDButtonText:
             text: "Desktop main"
 

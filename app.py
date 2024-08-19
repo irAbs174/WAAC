@@ -41,7 +41,7 @@ class App(MDApp):
     def build(self):
         global sm
         sm = ScreenManager()
-        self.theme_cls.primary_palette = "Red"
+        self.theme_cls.primary_palette = "Blue"
         self.titlebar_widget = False
         Window.minimum_height = 667
         Window.minimum_width = 375
@@ -54,6 +54,6 @@ class App(MDApp):
     def load_screen(self, screen):
         sm.current = screen
         
-        
+
 if __name__ == "__main__":
     App().run()
