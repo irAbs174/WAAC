@@ -1,25 +1,215 @@
-#:import get_color_from_hex kivy.utils.get_color_from_hex
+<NavDrawer@MDNavigationDrawer>:
+    radius: 0, dp(16), dp(16), 0
 
-<LoginBtn@MDButton>:
-    pos_hint: {"center_x": .5, "center_y": .5}
+    MDNavigationDrawerMenu:
 
-    on_release:
-        app.load_screen(screen="main")
+        MDNavigationDrawerHeader:
+            padding: "16dp", 0, "16dp", "16dp"
+            spacing: "16dp"
 
-    MDButtonIcon:
-        icon: "plus"
+            MDIcon:
+                icon: "robot-love"
+                theme_font_size: "Custom"
+                font_size: "56sp"
+                theme_icon_color: "Custom"
+                icon_color: self.theme_cls.primaryColor
 
-<MobileView>
-    LoginBtn:
-        MDButtonText:
-            text: "Mobile main"
+            MDLabel:
+                text: app.persian(txt="رایان فرید")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                font_style: "Display"
+                role: "medium"
+                theme_line_height: "Custom"
+                line_height: 0
+                adaptive_height: True
+                theme_text_color: "Custom"
+                text_color: self.theme_cls.primaryColor
 
+        MDNavigationDrawerLabel:
+            text: app.persian(txt="درج خودکار کامنت")
+            theme_font_name : "Custom"
+            font_name: 'nasalization'
+            theme_text_color: "Custom"
+            text_color: self.theme_cls.primaryColor
+            theme_font_size: "Custom"
+            font_size: "27dp"
+
+        MDNavigationDrawerItem:
+
+            MDNavigationDrawerItemLeadingIcon:
+                icon: "wrench-cog-outline"
+
+            MDNavigationDrawerItemText:
+                text: app.persian(txt="تنظیمات")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
+
+        MDNavigationDrawerDivider:
+
+        MDNavigationDrawerItem:
+
+            MDNavigationDrawerItemLeadingIcon:
+                icon: "help"
+
+            MDNavigationDrawerItemText:
+                text: app.persian(txt="راهنما")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
+
+        MDNavigationDrawerItem:
+
+            MDNavigationDrawerItemLeadingIcon:
+                icon: "information-outline"
+
+            MDNavigationDrawerItemText:
+                text: app.persian(txt="درباره ما")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
+
+
+<TopAppBar@MDCard>:
+    padding: "4dp"
+    size_hint_x: .995
+    size_hint_y: .09
+    pos_hint: {"center_y": .5, "center_x": .5, "top": .995}
+    radius: [0, 0, 25, 25]
+
+
+<BottomAppBar@MDCard>:
+    padding: "4dp"
+    size_hint_x: .995
+    size_hint_y: .04
+    pos_hint: {"center_y": .02, "center_x": .5, "bottom": 1}
+    radius: [25, 25, 0, 0]
+
+
+<bottomSheet@MDBottomSheet>:
+    id: root.id
+    sheet_type: "standard"
+    size_hint_y: .2
+
+
+<SwiperItem@MDSwiperItem>:
+    
 <TabletView>
-    LoginBtn:
-        MDButtonText:
-            text: "Tablet main"
-        MDButtonText:
-            text: "Desktop main"
+    md_bg_color: self.theme_cls.backgroundColor
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            MDScreen:
+                MDFloatLayout:
+                    TopAppBar:
+                        MDRelativeLayout:
+                            MDIconButton:
+                                icon: "menu"
+                                pos_hint: {"left": 1, "center_y": .5}
+                                on_release: nav_drawer.set_state("toggle")
+                    
+                            MDLabel:
+                                text: "Add Auto Comment !"
+                                adaptive_size: True
+                                pos_hint: {"center_y": .5, "center_x": .5}
+                                bold: True
+                                theme_font_name: "Custom"
+                                font_name: "nasalization"
+                                theme_font_size: "Custom"
+                                font_size: "19dp"
+                    
+                            MDIconButton:
+                                pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .94}
+                                icon: "theme-light-dark"
+                                on_release: app.switch_theme()
+    
+                        
+                MDCard:
+                    size_hint_y: .856
+                    size_hint_x: .98
+                    pos_hint: {"center_y": .474, "center_x": .5}
+                    radius: [25, 25, 25, 25]
+                    MDRelativeLayout:
+                        MDCard:
+                            size_hint_x:.98
+                            size_hint_y:.5
+                            pos_hint: {'center_x': .5, 'center_y': .72}
+                            theme_bg_color: 'Custom'
+                            md_bg_color: 'lightblue'
+
+
+                BottomAppBar:
+                    on_release: bottom_sheet.set_state("open")
+                    MDRelativeLayout:
+                        MDIcon:
+                            style: "outlined"
+                            pos_hint : {'center_x':.5, 'center_y': .5}
+                            icon: "arrow-up-circle"
+                
+                bottomSheet:
+                    id: bottom_sheet
+                    on_release: bottom_sheet.set_state("open")
+                    MDRelativeLayout:
+                        MDCard:
+                            style: "outlined"
+                            size_hint_y: .15
+                            pos_hint:{'top': 1}
+                            on_release: bottom_sheet.set_state("close")
+                            MDRelativeLayout:
+                                MDIcon:
+                                    style: "outlined"
+                                    pos_hint : {'center_x':.5, 'center_y': .5}
+                                    icon: "arrow-down-circle"
+
+                        MDCard:
+                            padding: "5dp"
+                            style: "outlined"
+                            size_hint_y: .80
+                            pos_hint: {"bottom": 1}
+                            spacing: "12dp"
+                            MDRelativeLayout:
+                                MDExtendedFabButton:
+                                    pos_hint: {"center_x": .30, "center_y": .5}
+                                    fab_state : "expand"
+
+                                    MDExtendedFabButtonIcon:
+                                        icon: "badge-account-alert-outline"
+                        
+                                    MDExtendedFabButtonText:
+                                        text: app.persian(txt="گزارش خرابی")
+                                        theme_font_name: "Custom"
+                                        font_name: "nasalization"
+                                        theme_font_size : "Custom"
+                                        font_size: "24dp"
+                                
+                                MDDivider:
+                                    size_hint_y: .7
+                                    pos_hint: {"center_x": .5, "center_y": .5}
+                                    orientation: "vertical"
+
+                                MDExtendedFabButton:
+                                    pos_hint: {"center_x": .70, "center_y": .5}
+                                    fab_state : "expand"
+                                    on_release: exit()
+                                    
+                                    MDExtendedFabButtonIcon:
+                                        icon: "exit-run"
+                        
+                                    MDExtendedFabButtonText:
+                                        text: app.persian(txt="خروج")
+                                        theme_font_name: "Custom"
+                                        font_name: "nasalization"
+                                        theme_font_size : "Custom"
+                                        font_size: "22dp"
+
+    NavDrawer:
+        id: nav_drawer
+
 
 ResponsiveView:
     name: "login"

@@ -5,6 +5,7 @@ from kivy.metrics import (dp, sp)
 from kivy.factory import Factory
 from kivy.lang import Builder
 from kivymd.app import MDApp
+from db import DB
 
 # Theme Manager
 from kivymd.theming import ThemeManager
@@ -70,8 +71,10 @@ class App(MDApp):
         Window.minimum_width = 375
         self.title = "Auto Ai Comment"
 
-        sm.add_widget(Builder.load_file('templates/main.kv'))
-        sm.add_widget(Builder.load_file('templates/login.kv'))
+        if DB().check_first_run():
+            sm.add_widget(Builder.load_file('templates/login.kv'))
+        else:
+            sm.add_widget(Builder.load_file('templates/main.kv'))
         return sm
         
     # Load Screen function

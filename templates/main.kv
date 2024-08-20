@@ -187,14 +187,14 @@
                                 
                         
                 MDCard:
-                    padding: "8dp"
-                    size_hint_y: .4
-                    size_hint_x: .26
-                    pos_hint: {"center_y": .27, "center_x": .85}
-                    radius: [2, 25, 25, 2]
+                    padding: "2dp"
+                    size_hint_x: .95
+                    size_hint_y: .13
+                    pos_hint: {"center_x": .5, "center_y": .415}
+                    radius: [25, 25, 25, 25]
                     MDRelativeLayout:
                         MDButtonIcon:
-                            pos_hint : {"center_x": .5, "center_y": .65}
+                            pos_hint : {"center_x": .5, "center_y": .8}
                             icon: "robot-happy-outline"
                             theme_icon_color: "Custom"
                             icon_color: "green"
@@ -206,26 +206,26 @@
                             pos_hint: {'center_x': .5, 'center_y': .5}
                     
                         MDButtonText:
-                            pos_hint : {"center_x": .5, "center_y": .40}
+                            pos_hint : {"center_x": .5, "center_y": .3}
                             text: app.persian(txt='ارتباط زنده با ربات')
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
                             text_color: self.theme_cls.primaryColor
                             theme_font_size : "Custom"
-                            font_size: "18dp"
+                            font_size: "24dp"
                             bold: True
 
                 MDCard:
                     padding: "2dp"
-                    size_hint_y: .4
-                    size_hint_x: .42
-                    pos_hint: {"center_y": .27, "center_x": .50}
-                    radius: [2, 2, 2, 2]
+                    size_hint_x: .95
+                    size_hint_y: .16
+                    pos_hint: {"center_x": .5, "center_y": .262}
+                    radius: [25, 25, 25, 25]
 
                     MDRelativeLayout:
                         MDButtonIcon:
-                            pos_hint : {"center_x": .5, "center_y": .65}
+                            pos_hint : {"center_x": .5, "center_y": .75}
                             icon: "comment-multiple-outline"
                             theme_icon_color: "Custom"
                             icon_color: "green"
@@ -237,25 +237,25 @@
                             pos_hint: {'center_x': .5, 'center_y': .5}
                     
                         MDButtonText:
-                            pos_hint : {"center_x": .5, "center_y": .40}
+                            pos_hint : {"center_x": .5, "center_y": .25}
                             text: app.persian(txt='افزودن دیدگاه به محصولات')
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
                             text_color: self.theme_cls.primaryColor
                             theme_font_size : "Custom"
-                            font_size: "18dp"
+                            font_size: "24dp"
                             bold: True
     
                 MDCard:
-                    padding: "8dp"
-                    size_hint_y: .4
-                    size_hint_x: .26
-                    pos_hint: {"center_y": .27, "center_x": .15}
-                    radius: [25, 2, 2, 25]
+                    padding: "2dp"
+                    size_hint_x: .95
+                    size_hint_y: .13
+                    pos_hint: {"center_x": .5, "center_y": .11}
+                    radius: [25, 25, 25, 25]
                     MDRelativeLayout:
                         MDButtonIcon:
-                            pos_hint : {"center_x": .5, "center_y": .65}
+                            pos_hint : {"center_x": .5, "center_y": .8}
                             icon: "history"
                             theme_icon_color: "Custom"
                             icon_color: "green"
@@ -267,14 +267,14 @@
                             pos_hint: {'center_x': .5, 'center_y': .5}
                     
                         MDButtonText:
-                            pos_hint : {"center_x": .5, "center_y": .40}
+                            pos_hint : {"center_x": .5, "center_y": .25}
                             text: app.persian(txt='سوابق فعالیت')
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
                             text_color: self.theme_cls.primaryColor
                             theme_font_size : "Custom"
-                            font_size: "18dp"
+                            font_size: "24dp"
                             bold: True
                 BottomAppBar:
                     on_release: bottom_sheet.set_state("open")
