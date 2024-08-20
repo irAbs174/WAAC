@@ -64,7 +64,7 @@ class App(MDApp):
         global sm
         sm = ScreenManager()
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Orange"
+        self.theme_cls.primary_palette = "Tomato"
         self.titlebar_widget = False
         Window.minimum_height = 667
         Window.minimum_width = 375
@@ -92,7 +92,7 @@ class App(MDApp):
             "Dark" if self.theme_cls.theme_style == "Light" else "Light"
         )
         self.theme_cls.primary_palette = (
-                    "Blue" if self.theme_cls.primary_palette == "Orange" else "Orange"
+                    "Tomato" if self.theme_cls.primary_palette == "Chocolate" else "Chocolate"
                 )
 
 
