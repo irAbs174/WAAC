@@ -15,7 +15,9 @@
                 icon_color: self.theme_cls.primaryColor
 
             MDLabel:
-                text: "Menu"
+                text: app.persian(txt="رایان فرید")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
                 font_style: "Display"
                 role: "medium"
                 theme_line_height: "Custom"
@@ -25,17 +27,25 @@
                 text_color: self.theme_cls.primaryColor
 
         MDNavigationDrawerLabel:
-            text: "Woocommerce Ai Comment"
+            text: app.persian(txt="درج خودکار کامنت")
+            theme_font_name : "Custom"
+            font_name: 'nasalization'
             theme_text_color: "Custom"
             text_color: self.theme_cls.primaryColor
+            theme_font_size: "Custom"
+            font_size: "27dp"
 
         MDNavigationDrawerItem:
 
             MDNavigationDrawerItemLeadingIcon:
-                icon: "plus"
+                icon: "wrench-cog-outline"
 
             MDNavigationDrawerItemText:
-                text: "Auto Comment"
+                text: app.persian(txt="تنظیمات")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
 
         MDNavigationDrawerDivider:
 
@@ -45,7 +55,11 @@
                 icon: "help"
 
             MDNavigationDrawerItemText:
-                text: "help"
+                text: app.persian(txt="راهنما")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
 
         MDNavigationDrawerItem:
 
@@ -53,7 +67,11 @@
                 icon: "information-outline"
 
             MDNavigationDrawerItemText:
-                text: "About us"
+                text: app.persian(txt="درباره ما")
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
 
 
 <TopAppBar@MDCard>:
