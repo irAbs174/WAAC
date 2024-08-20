@@ -1,3 +1,6 @@
+#:import arabic_reshaper arabic_reshaper
+#:import get_display bidi.algorithm.get_display
+
 <NavDrawer@MDNavigationDrawer>:
     radius: 0, dp(16), dp(16), 0
 
@@ -15,7 +18,7 @@
                 icon_color: self.theme_cls.primaryColor
 
             MDLabel:
-                text: app.persian(txt="رایان فرید")
+                text: "رایان فرید"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 font_style: "Display"
@@ -27,7 +30,7 @@
                 text_color: self.theme_cls.primaryColor
 
         MDNavigationDrawerLabel:
-            text: app.persian(txt="درج خودکار کامنت")
+            text: "درج خودکار کامنت"
             theme_font_name : "Custom"
             font_name: 'nasalization'
             theme_text_color: "Custom"
@@ -41,7 +44,7 @@
                 icon: "wrench-cog-outline"
 
             MDNavigationDrawerItemText:
-                text: app.persian(txt="تنظیمات")
+                text: "تنظیمات"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 theme_font_size: "Custom"
@@ -55,7 +58,7 @@
                 icon: "help"
 
             MDNavigationDrawerItemText:
-                text: app.persian(txt="راهنما")
+                text: "راهنما"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 theme_font_size: "Custom"
@@ -67,7 +70,7 @@
                 icon: "information-outline"
 
             MDNavigationDrawerItemText:
-                text: app.persian(txt="درباره ما")
+                text: "درباره ما"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 theme_font_size: "Custom"
@@ -97,7 +100,7 @@
 
 
 <SwiperItem@MDSwiperItem>:
-    
+
 <TabletView>
     md_bg_color: self.theme_cls.backgroundColor
 
@@ -114,14 +117,14 @@
                                 on_release: nav_drawer.set_state("toggle")
                     
                             MDLabel:
-                                text: "Add Auto Comment !"
+                                text: "درج خودکار نظر و امتیاز محصول"
                                 adaptive_size: True
                                 pos_hint: {"center_y": .5, "center_x": .5}
                                 bold: True
                                 theme_font_name: "Custom"
                                 font_name: "nasalization"
                                 theme_font_size: "Custom"
-                                font_size: "19dp"
+                                font_size: "24dp"
                     
                             MDIconButton:
                                 pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .94}
@@ -130,6 +133,7 @@
     
                         
                 MDCard:
+                    padding: "4dp"
                     size_hint_y: .856
                     size_hint_x: .98
                     pos_hint: {"center_y": .474, "center_x": .5}
@@ -137,10 +141,70 @@
                     MDRelativeLayout:
                         MDCard:
                             size_hint_x:.98
-                            size_hint_y:.5
+                            size_hint_y:.4
                             pos_hint: {'center_x': .5, 'center_y': .72}
                             theme_bg_color: 'Custom'
-                            md_bg_color: 'lightblue'
+                            md_bg_color: self.theme_cls.backgroundColor
+
+                            MDSwiper:
+                                height: root.height - dp(38)
+
+                                SwiperItem:
+                                    MDFloatLayout:
+
+                                        FitImage:
+                                            pos_hint: {'center_y': .5, 'center_x': .5}
+                                            source: "assets/images/bg.jpg"
+                                            radius: [25, 0, 25, 0]
+
+                                        MDButton:
+                                            pos_hint: {'center_x': .5, 'center_y': .5}
+                                            MDButtonText:
+                                                style: "outlined"
+                                                text: 'دکمه اسلایدر شماره ۱'
+                                                theme_font_name: "Custom"
+                                                font_name: "nasalization"
+                                                theme_font_size : "Custom"
+                                                font_size: "35dp"
+
+                                SwiperItem:
+                                    MDFloatLayout:
+
+                                        FitImage:
+                                            pos_hint: {'center_y': .5, 'center_x': .5}
+                                            source: "assets/images/bg.jpg"
+                                            radius: [25, 0, 25, 0]
+
+                                        MDButton:
+                                            pos_hint: {'center_x': .5, 'center_y': .5}
+                                            MDButtonText:
+                                                style: "outlined"
+                                                text: 'دکمه اسلایدر شماره ۲'
+                                                theme_font_name: "Custom"
+                                                font_name: "nasalization"
+                                                theme_font_size : "Custom"
+                                                font_size: "35dp"
+
+                        MDFloatLayout:
+
+                            MDTextField:
+                                mode: "filled"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+
+                                MDTextFieldLeadingIcon:
+                                    icon: "magnify"
+                            
+                                MDTextFieldHintText:
+                                    text: "Hint text"
+                                MDTextFieldHelperText:
+                                    text: "Helper text color focus"
+                                    text_color_focus: "brown"
+                                    MDTextFieldTrailingIcon:
+                                        icon: "information"
+
+                                    MDTextFieldMaxLengthText:
+                                        max_text_length: 10
 
 
                 BottomAppBar:
@@ -181,7 +245,7 @@
                                         icon: "badge-account-alert-outline"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="گزارش خرابی")
+                                        text: "گزارش خرابی"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -201,7 +265,7 @@
                                         icon: "exit-run"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="خروج")
+                                        text: "خروج"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"

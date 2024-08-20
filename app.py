@@ -5,7 +5,12 @@ from kivy.metrics import (dp, sp)
 from kivy.factory import Factory
 from kivy.lang import Builder
 from kivymd.app import MDApp
+from kivy.clock import Clock
 from db import DB
+import asynckivy as ak
+import sys
+from kivyir import *
+
 
 # Theme Manager
 from kivymd.theming import ThemeManager
@@ -72,20 +77,14 @@ class App(MDApp):
         self.title = "Auto Ai Comment"
 
         if DB().check_first_run():
-            sm.add_widget(Builder.load_file('templates/login.kv'))
-        else:
             sm.add_widget(Builder.load_file('templates/main.kv'))
+        else:
+            sm.add_widget(Builder.load_file('templates/login.kv'))
         return sm
         
     # Load Screen function
     def load_screen(self, screen):
         sm.current = screen
-
-    # Fix arabic chars
-    def persian(self, txt):
-        reshaped_text = reshape(txt)
-        bidi_text = get_display(reshaped_text)
-        return bidi_text
 
     # Switch theme dark/light
     def switch_theme(self):

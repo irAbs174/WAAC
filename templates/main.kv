@@ -15,7 +15,7 @@
                 icon_color: self.theme_cls.primaryColor
 
             MDLabel:
-                text: app.persian(txt="رایان فرید")
+                text: "رایان فرید"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 font_style: "Display"
@@ -27,7 +27,7 @@
                 text_color: self.theme_cls.primaryColor
 
         MDNavigationDrawerLabel:
-            text: app.persian(txt="درج خودکار کامنت")
+            text: "درج خودکار کامنت"
             theme_font_name : "Custom"
             font_name: 'nasalization'
             theme_text_color: "Custom"
@@ -41,7 +41,7 @@
                 icon: "wrench-cog-outline"
 
             MDNavigationDrawerItemText:
-                text: app.persian(txt="تنظیمات")
+                text: "تنظیمات"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 theme_font_size: "Custom"
@@ -55,7 +55,7 @@
                 icon: "help"
 
             MDNavigationDrawerItemText:
-                text: app.persian(txt="راهنما")
+                text: "راهنما"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 theme_font_size: "Custom"
@@ -67,7 +67,7 @@
                 icon: "information-outline"
 
             MDNavigationDrawerItemText:
-                text: app.persian(txt="درباره ما")
+                text: "درباره ما"
                 theme_font_name : "Custom"
                 font_name: 'nasalization'
                 theme_font_size: "Custom"
@@ -120,7 +120,7 @@
                                     font_size: "22dp"
                     
                             MDLabel:
-                                text: "Add Auto Comment !"
+                                text: "درج خودکار نظر و امتیاز محصول"
                                 adaptive_size: True
                                 pos_hint: {"center_y": .5, "center_x": .5}
                                 bold: True
@@ -161,7 +161,7 @@
                                     pos_hint: {'center_x': .5, 'center_y': .5}
                                     MDButtonText:
                                         style: "outlined"
-                                        text: app.persian(txt='دکمه اسلایدر - 1')
+                                        text: 'دکمه اسلایدر شماره ۱'
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -179,7 +179,7 @@
                                     pos_hint: {'center_x': .5, 'center_y': .5}
                                     MDButtonText:
                                         style: "outlined"
-                                        text: app.persian(txt='دکمه اسلایدر - 2')
+                                        text: 'دکمه اسلایدر شماره ۲'
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -207,7 +207,7 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .3}
-                            text: app.persian(txt='ارتباط زنده با ربات')
+                            text: 'ارتباط زنده با ربات'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
@@ -238,7 +238,7 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .25}
-                            text: app.persian(txt='افزودن دیدگاه به محصولات')
+                            text: 'افزودن دیدگاه به محصولات'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
@@ -268,7 +268,7 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .25}
-                            text: app.persian(txt='سوابق فعالیت')
+                            text: 'سوابق فعالیت'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
@@ -313,7 +313,7 @@
                                         icon: "badge-account-alert-outline"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="گزارش خرابی")
+                                        text: "گزارش خرابی"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -333,7 +333,7 @@
                                         icon: "exit-run"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="خروج")
+                                        text: "خروج"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -358,14 +358,14 @@
                                 on_release: nav_drawer.set_state("toggle")
                     
                             MDLabel:
-                                text: "Add Auto Comment !"
+                                text: "درج خودکار نظر و امتیاز محصول"
                                 adaptive_size: True
                                 pos_hint: {"center_y": .5, "center_x": .5}
                                 bold: True
                                 theme_font_name: "Custom"
                                 font_name: "nasalization"
                                 theme_font_size: "Custom"
-                                font_size: "19dp"
+                                font_size: "24dp"
                     
                             MDIconButton:
                                 pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .94}
@@ -381,7 +381,7 @@
                     radius: [25, 25, 25, 25]
 
                     MDSwiper:
-                        height: root.height - dp(40)
+                        height: root.height - dp(38)
 
                         SwiperItem:
                             MDFloatLayout:
@@ -389,13 +389,13 @@
                                 FitImage:
                                     pos_hint: {'center_y': .5, 'center_x': .5}
                                     source: "assets/images/bg.jpg"
-                                    radius: [25, 25, 25, 25]
+                                    radius: [25, 0, 25, 0]
 
                                 MDButton:
                                     pos_hint: {'center_x': .5, 'center_y': .5}
                                     MDButtonText:
                                         style: "outlined"
-                                        text: app.persian(txt='دکمه اسلایدر - 1')
+                                        text: 'دکمه اسلایدر شماره ۱'
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -407,13 +407,13 @@
                                 FitImage:
                                     pos_hint: {'center_y': .5, 'center_x': .5}
                                     source: "assets/images/bg.jpg"
-                                    radius: [25, 25, 25, 25]
+                                    radius: [25, 0, 25, 0]
 
                                 MDButton:
                                     pos_hint: {'center_x': .5, 'center_y': .5}
                                     MDButtonText:
                                         style: "outlined"
-                                        text: app.persian(txt='دکمه اسلایدر - 2')
+                                        text: 'دکمه اسلایدر شماره ۲'
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -440,13 +440,13 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .40}
-                            text: app.persian(txt='ارتباط زنده با ربات')
+                            text: 'ارتباط زنده با ربات'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
                             text_color: self.theme_cls.primaryColor
                             theme_font_size : "Custom"
-                            font_size: "22dp"
+                            font_size: "24dp"
                             bold: True
 
                 MDCard:
@@ -470,13 +470,13 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .40}
-                            text: app.persian(txt='افزودن دیدگاه به محصولات')
+                            text: 'افزودن دیدگاه به محصولات'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
                             text_color: self.theme_cls.primaryColor
                             theme_font_size : "Custom"
-                            font_size: "22dp"
+                            font_size: "24dp"
                             bold: True
     
                 MDCard:
@@ -500,13 +500,13 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .40}
-                            text: app.persian(txt='سوابق فعالیت')
+                            text: 'سوابق فعالیت'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
                             text_color: self.theme_cls.primaryColor
                             theme_font_size : "Custom"
-                            font_size: "22dp"
+                            font_size: "24dp"
                             bold: True
                 BottomAppBar:
                     on_release: bottom_sheet.set_state("open")
@@ -546,7 +546,7 @@
                                         icon: "badge-account-alert-outline"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="گزارش خرابی")
+                                        text: "گزارش خرابی"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -566,7 +566,7 @@
                                         icon: "exit-run"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="خروج")
+                                        text: "خروج"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -596,7 +596,7 @@
                                     font_size: "39dp"
                     
                             MDLabel:
-                                text: "Add Auto Comment !"
+                                text: "درج خودکار نظر و امتیاز محصول"
                                 adaptive_size: True
                                 pos_hint: {"center_y": .5, "center_x": .5}
                                 bold: True
@@ -637,7 +637,7 @@
                                     pos_hint: {'center_x': .5, 'center_y': .5}
                                     MDButtonText:
                                         style: "outlined"
-                                        text: app.persian(txt='دکمه اسلایدر - 1')
+                                        text: 'دکمه اسلایدر شماره ۱'
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -655,7 +655,7 @@
                                     pos_hint: {'center_x': .5, 'center_y': .5}
                                     MDButtonText:
                                         style: "outlined"
-                                        text: app.persian(txt='دکمه اسلایدر - 2')
+                                        text: 'دکمه اسلایدر شماره ۲'
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -683,7 +683,7 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .40}
-                            text: app.persian(txt='ارتباط زنده با ربات')
+                            text: 'ارتباط زنده با ربات'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
@@ -713,7 +713,7 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .40}
-                            text: app.persian(txt='افزودن دیدگاه به محصولات')
+                            text: 'افزودن دیدگاه به محصولات'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
@@ -743,7 +743,7 @@
                     
                         MDButtonText:
                             pos_hint : {"center_x": .5, "center_y": .40}
-                            text: app.persian(txt='سوابق فعالیت')
+                            text: 'سوابق فعالیت'
                             theme_font_name: "Custom"
                             font_name: "nasalization"
                             theme_text_color: "Custom"
@@ -789,7 +789,7 @@
                                         icon: "badge-account-alert-outline"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="گزارش خرابی")
+                                        text: "گزارش خرابی"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
@@ -809,7 +809,7 @@
                                         icon: "exit-run"
                         
                                     MDExtendedFabButtonText:
-                                        text: app.persian(txt="خروج")
+                                        text: "خروج"
                                         theme_font_name: "Custom"
                                         font_name: "nasalization"
                                         theme_font_size : "Custom"
