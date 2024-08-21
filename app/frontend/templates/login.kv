@@ -1,0 +1,580 @@
+<NavDrawer@MDNavigationDrawer>:
+    radius: 0, dp(16), dp(16), 0
+
+    MDNavigationDrawerMenu:
+
+        MDNavigationDrawerHeader:
+            padding: "16dp", 0, "16dp", "16dp"
+            spacing: "16dp"
+
+            MDIcon:
+                icon: "robot-love"
+                theme_font_size: "Custom"
+                font_size: "56sp"
+                theme_icon_color: "Custom"
+                icon_color: self.theme_cls.primaryColor
+
+            MDLabel:
+                text: "رایان فرید"
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                font_style: "Display"
+                role: "medium"
+                theme_line_height: "Custom"
+                line_height: 0
+                adaptive_height: True
+                theme_text_color: "Custom"
+                text_color: self.theme_cls.primaryColor
+
+        MDNavigationDrawerLabel:
+            text: "درج خودکار کامنت"
+            theme_font_name : "Custom"
+            font_name: 'nasalization'
+            theme_text_color: "Custom"
+            text_color: self.theme_cls.primaryColor
+            theme_font_size: "Custom"
+            font_size: "27dp"
+
+        MDNavigationDrawerItem:
+
+            MDNavigationDrawerItemLeadingIcon:
+                icon: "wrench-cog-outline"
+
+            MDNavigationDrawerItemText:
+                text: "تنظیمات"
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
+
+        MDNavigationDrawerDivider:
+
+        MDNavigationDrawerItem:
+
+            MDNavigationDrawerItemLeadingIcon:
+                icon: "help"
+
+            MDNavigationDrawerItemText:
+                text: "راهنما"
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
+
+        MDNavigationDrawerItem:
+
+            MDNavigationDrawerItemLeadingIcon:
+                icon: "information-outline"
+
+            MDNavigationDrawerItemText:
+                text: "درباره ما"
+                theme_font_name : "Custom"
+                font_name: 'nasalization'
+                theme_font_size: "Custom"
+                font_size: "23dp"
+
+
+<TopAppBar@MDCard>:
+    padding: "4dp"
+    size_hint_x: .98
+    size_hint_y: .06
+    pos_hint: {"center_y": .5, "center_x": .5, "top": .995}
+    radius: [0, 0, 0, 0]
+
+
+<BottomAppBar@MDCard>:
+    padding: "4dp"
+    size_hint_x: .98
+    size_hint_y: .03
+    pos_hint: {"center_y": .02, "center_x": .5, "bottom": 1}
+    radius: [0, 0, 0, 0]
+
+
+<bottomSheet@MDBottomSheet>:
+    id: root.id
+    sheet_type: "standard"
+    size_hint_y: .2
+
+
+<SwiperItem@MDSwiperItem>:
+
+<DesktopView>:
+    TabletView
+
+<MobileView>:
+    md_bg_color: self.theme_cls.backgroundColor
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            MDScreen:
+                MDFloatLayout:
+                    TopAppBar:
+                        MDRelativeLayout:
+                            MDIconButton:
+                                icon: "menu"
+                                pos_hint: {"left": 1, "center_y": .5}
+                                on_release: nav_drawer.set_state("toggle")
+                    
+                            MDLabel:
+                                text: "ورود به سیستم"
+                                adaptive_size: True
+                                pos_hint: {"center_y": .5, "center_x": .5}
+                                bold: True
+                                theme_font_name: "Custom"
+                                font_name: "nasalization"
+                                theme_font_size: "Custom"
+                                font_size: "24dp"
+                
+
+                            MDIconButton:
+                                pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .94}
+                                icon: "theme-light-dark"
+                                on_release: app.switch_theme()
+
+                MDCard:
+                    padding: "4dp"
+                    size_hint_y: .88
+                    size_hint_x: .98
+                    pos_hint: {"center_y": .485, "center_x": .5}
+                    radius: [25, 25, 25, 25]
+                    MDRelativeLayout:
+                        MDCard:
+                            size_hint_x:.98
+                            size_hint_y:.55
+                            pos_hint: {'center_x': .5, 'center_y': .72}
+                            theme_bg_color: 'Custom'
+                            md_bg_color: self.theme_cls.backgroundColor
+
+                            MDSwiper:
+                                height: root.height - dp(38)
+
+                                SwiperItem:
+                                    MDFloatLayout:
+
+                                        FitImage:
+                                            pos_hint: {'center_y': .5, 'center_x': .5}
+                                            source: "assets/images/bg.jpg"
+                                            radius: [25, 0, 25, 0]
+
+                                        MDButton:
+                                            pos_hint: {'center_x': .5, 'center_y': .5}
+                                            MDButtonText:
+                                                style: "outlined"
+                                                text: 'دکمه اسلایدر شماره ۱'
+                                                theme_font_name: "Custom"
+                                                font_name: "nasalization"
+                                                theme_font_size : "Custom"
+                                                font_size: "18dp"
+
+                                SwiperItem:
+                                    MDFloatLayout:
+
+                                        FitImage:
+                                            pos_hint: {'center_y': .5, 'center_x': .5}
+                                            source: "assets/images/bg.jpg"
+                                            radius: [25, 0, 25, 0]
+
+                                        MDButton:
+                                            pos_hint: {'center_x': .5, 'center_y': .5}
+                                            MDButtonText:
+                                                style: "outlined"
+                                                text: 'دکمه اسلایدر شماره ۲'
+                                                theme_font_name: "Custom"
+                                                font_name: "nasalization"
+                                                theme_font_size : "Custom"
+                                                font_size: "18dp"
+
+                        MDFloatLayout:
+                            MDLabel:
+                                pos_hint: {'center_x': .84, 'center_y': .37}
+                                adaptive_size: True
+                                theme_font_size: "Custom"
+                                font_size: "18dp"
+                                text: "شماره تماس:"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                rool: 'small'
+
+                            MDTextField:
+                                id: phone_input
+                                size_hint_x:.64
+                                size_hint_y: .35
+                                pos_hint:{'center_x': .42, 'center_y': .36}
+                                mode: "outlined"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                theme_font_size: "Custom"
+                                font_size: "24dp"
+
+                                MDTextFieldTrailingIcon:
+                                    icon: "cellphone"
+                            
+                                MDTextFieldHintText:
+                                    theme_font_name: "Custom"
+                                    font_name : 'nasalization'
+                                    text: "شماره همراه به همراه صفر وارد کنید"
+
+                                MDTextFieldMaxLengthText:
+                                    max_text_length: 11
+
+
+                            MDLabel:
+                                pos_hint: {'center_x': .82, 'center_y': .21}
+                                adaptive_size: True
+                                theme_font_size: "Custom"
+                                font_size: "18dp"
+                                text: "نام:"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                rool: 'small'
+
+                            MDTextField:
+                                id: name_input
+                                size_hint_x:.64
+                                size_hint_y: .35
+                                pos_hint:{'center_x': .42, 'center_y': .21}
+                                mode: "outlined"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                theme_font_size: "Custom"
+                                font_size: "24dp"
+
+                                MDTextFieldTrailingIcon:
+                                    icon: "account-outline"
+                            
+                                MDTextFieldHintText:
+                                    theme_font_name: "Custom"
+                                    font_name : 'nasalization'
+                                    text: "نام شما چیست ؟ برای مثال: عباس"
+
+                            MDButton:
+                                style: "outlined"
+                                theme_width: "Custom"
+                                size_hint_x: .64
+                                size_hint_y: .3
+                                pos_hint: {'center_x': .42, 'center_y': .09}
+                                MDButtonIcon:
+                                    x: text.x - (self.width + dp(10))
+                                    icon: "key-outline"
+
+                                MDButtonText:
+                                    id: text
+                                    theme_font_name: "Custom"
+                                    font_name : 'nasalization'
+                                    theme_font_size: "Custom"
+                                    font_size: "23dp"
+                                    text: "ورود به سیستم"
+                                    pos_hint: {"center_x": .5, "center_y": .5}
+
+
+                BottomAppBar:
+                    on_release: bottom_sheet.set_state("open")
+                    MDRelativeLayout:
+                        MDIcon:
+                            style: "outlined"
+                            pos_hint : {'center_x':.5, 'center_y': .5}
+                            icon: "arrow-up-circle"
+                
+                bottomSheet:
+                    id: bottom_sheet
+                    on_release: bottom_sheet.set_state("open")
+                    MDRelativeLayout:
+                        MDCard:
+                            style: "outlined"
+                            size_hint_y: .15
+                            pos_hint:{'top': 1}
+                            on_release: bottom_sheet.set_state("close")
+                            MDRelativeLayout:
+                                MDIcon:
+                                    style: "outlined"
+                                    pos_hint : {'center_x':.5, 'center_y': .5}
+                                    icon: "arrow-down-circle"
+
+                        MDCard:
+                            padding: "5dp"
+                            style: "outlined"
+                            size_hint_y: .80
+                            pos_hint: {"bottom": 1}
+                            spacing: "12dp"
+                            MDRelativeLayout:
+                                MDExtendedFabButton:
+                                    pos_hint: {"center_x": .30, "center_y": .5}
+                                    fab_state : "expand"
+
+                                    MDExtendedFabButtonIcon:
+                                        icon: "badge-account-alert-outline"
+                        
+                                    MDExtendedFabButtonText:
+                                        text: "گزارش خرابی"
+                                        theme_font_name: "Custom"
+                                        font_name: "nasalization"
+                                        theme_font_size : "Custom"
+                                        font_size: "17dp"
+
+                                MDExtendedFabButton:
+                                    pos_hint: {"center_x": .70, "center_y": .5}
+                                    fab_state : "expand"
+                                    on_release: exit()
+                                    
+                                    MDExtendedFabButtonIcon:
+                                        icon: "exit-run"
+                        
+                                    MDExtendedFabButtonText:
+                                        text: "خروج"
+                                        theme_font_name: "Custom"
+                                        font_name: "nasalization"
+                                        theme_font_size : "Custom"
+                                        font_size: "17dp"
+
+    NavDrawer:
+        id: nav_drawer
+
+<TabletView>
+    md_bg_color: self.theme_cls.backgroundColor
+
+    MDNavigationLayout:
+
+        MDScreenManager:
+            MDScreen:
+                MDFloatLayout:
+                    id: bodyLayout
+                    TopAppBar:
+                        MDRelativeLayout:
+                            MDIconButton:
+                                icon: "menu"
+                                pos_hint: {"left": 1, "center_y": .5}
+                                on_release: nav_drawer.set_state("toggle")
+                    
+                            MDLabel:
+                                text: "ورود به سیستم"
+                                adaptive_size: True
+                                pos_hint: {"center_y": .5, "center_x": .5}
+                                bold: True
+                                theme_font_name: "Custom"
+                                font_name: "nasalization"
+                                theme_font_size: "Custom"
+                                font_size: "24dp"
+                
+
+                            MDIconButton:
+                                pos_hint: {"left": 1, "right": 0,"center_y": .5, "center_x": .94}
+                                icon: "theme-light-dark"
+                                on_release: app.switch_theme()
+
+                MDCard:
+                    id: bodyCard
+                    padding: "4dp"
+                    size_hint_y: .88
+                    size_hint_x: .98
+                    pos_hint: {"center_y": .485, "center_x": .5}
+                    radius: [25, 25, 25, 25]
+                    MDRelativeLayout:
+                        id: loginLayout
+                        MDCard:
+                            id: loginCard
+                            size_hint_x:.98
+                            size_hint_y:.55
+                            pos_hint: {'center_x': .5, 'center_y': .72}
+                            theme_bg_color: 'Custom'
+                            md_bg_color: self.theme_cls.backgroundColor
+
+                            MDSwiper:
+                                height: root.height - dp(38)
+
+                                SwiperItem:
+                                    MDFloatLayout:
+
+                                        FitImage:
+                                            pos_hint: {'center_y': .5, 'center_x': .5}
+                                            source: "assets/images/bg.jpg"
+                                            radius: [25, 0, 25, 0]
+
+                                        MDButton:
+                                            pos_hint: {'center_x': .5, 'center_y': .5}
+                                            MDButtonText:
+                                                style: "outlined"
+                                                text: 'دکمه اسلایدر شماره ۱'
+                                                theme_font_name: "Custom"
+                                                font_name: "nasalization"
+                                                theme_font_size : "Custom"
+                                                font_size: "35dp"
+
+                                SwiperItem:
+                                    MDFloatLayout:
+
+                                        FitImage:
+                                            pos_hint: {'center_y': .5, 'center_x': .5}
+                                            source: "assets/images/bg.jpg"
+                                            radius: [25, 0, 25, 0]
+
+                                        MDButton:
+                                            pos_hint: {'center_x': .5, 'center_y': .5}
+                                            MDButtonText:
+                                                style: "outlined"
+                                                text: 'دکمه اسلایدر شماره ۲'
+                                                theme_font_name: "Custom"
+                                                font_name: "nasalization"
+                                                theme_font_size : "Custom"
+                                                font_size: "35dp"
+
+                        MDFloatLayout:
+                            MDLabel:
+                                pos_hint: {'center_x': .82, 'center_y': .37}
+                                adaptive_size: True
+                                theme_font_size: "Custom"
+                                font_size: "23dp"
+                                text: "شماره تماس:"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                rool: 'small'
+
+                            MDTextField:
+                                id: phone_input
+                                size_hint_x:.64
+                                size_hint_y: .35
+                                pos_hint:{'center_x': .42, 'center_y': .36}
+                                mode: "outlined"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                theme_font_size: "Custom"
+                                font_size: "24dp"
+
+                                MDTextFieldTrailingIcon:
+                                    icon: "cellphone"
+                            
+                                MDTextFieldHintText:
+                                    theme_font_name: "Custom"
+                                    font_name : 'nasalization'
+                                    text: "شماره همراه خود را به همراه صفر وارد کنید"
+
+                                MDTextFieldMaxLengthText:
+                                    max_text_length: 11
+
+
+                            MDLabel:
+                                pos_hint: {'center_x': .82, 'center_y': .21}
+                                adaptive_size: True
+                                theme_font_size: "Custom"
+                                font_size: "23dp"
+                                text: "نام:"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                rool: 'small'
+
+                            MDTextField:
+                                id: name_input
+                                size_hint_x:.64
+                                size_hint_y: .35
+                                pos_hint:{'center_x': .42, 'center_y': .21}
+                                mode: "outlined"
+                                theme_font_name: "Custom"
+                                font_name : 'nasalization'
+                                theme_font_size: "Custom"
+                                font_size: "24dp"
+
+                                MDTextFieldTrailingIcon:
+                                    icon: "account-outline"
+                            
+                                MDTextFieldHintText:
+                                    theme_font_name: "Custom"
+                                    font_name : 'nasalization'
+                                    text: "نام شما چیست ؟ برای مثال: عباس"
+
+
+                            MDButton:
+                                id: loginBtn
+                                style: "outlined"
+                                theme_width: "Custom"
+                                size_hint_x: .64
+                                size_hint_y: .3
+                                pos_hint: {'center_x': .42, 'center_y': .09}
+                                on_release:
+                                    loginBtnText.text = 'در حال احراز هویت'
+                                    app.User().register(name=name_input.text, phone=phone_input.text)
+
+                                MDButtonIcon:
+                                    icon: "key-outline"   
+
+                                MDButtonText:
+                                    id: loginBtnText
+                                    theme_font_name: "Custom"
+                                    font_name : 'nasalization'
+                                    theme_font_size: "Custom"
+                                    font_size: "23dp"
+                                    text: "ورود به سیستم"
+                                    pos_hint: {"center_x": .5, "center_y": .5}
+
+
+                BottomAppBar:
+                    on_release: bottom_sheet.set_state("open")
+                    MDRelativeLayout:
+                        MDIcon:
+                            style: "outlined"
+                            pos_hint : {'center_x':.5, 'center_y': .5}
+                            icon: "arrow-up-circle"
+                
+                bottomSheet:
+                    id: bottom_sheet
+                    on_release: bottom_sheet.set_state("open")
+                    MDRelativeLayout:
+                        MDCard:
+                            style: "outlined"
+                            size_hint_y: .15
+                            pos_hint:{'top': 1}
+                            on_release: bottom_sheet.set_state("close")
+                            MDRelativeLayout:
+                                MDIcon:
+                                    style: "outlined"
+                                    pos_hint : {'center_x':.5, 'center_y': .5}
+                                    icon: "arrow-down-circle"
+
+                        MDCard:
+                            padding: "5dp"
+                            style: "outlined"
+                            size_hint_y: .80
+                            pos_hint: {"bottom": 1}
+                            spacing: "12dp"
+                            MDRelativeLayout:
+                                MDExtendedFabButton:
+                                    pos_hint: {"center_x": .30, "center_y": .5}
+                                    fab_state : "expand"
+
+                                    MDExtendedFabButtonIcon:
+                                        icon: "badge-account-alert-outline"
+                        
+                                    MDExtendedFabButtonText:
+                                        text: "گزارش خرابی"
+                                        theme_font_name: "Custom"
+                                        font_name: "nasalization"
+                                        theme_font_size : "Custom"
+                                        font_size: "24dp"
+                                
+                                MDDivider:
+                                    size_hint_y: .7
+                                    pos_hint: {"center_x": .5, "center_y": .5}
+                                    orientation: "vertical"
+
+                                MDExtendedFabButton:
+                                    pos_hint: {"center_x": .70, "center_y": .5}
+                                    fab_state : "expand"
+                                    on_release: exit()
+                                    
+                                    MDExtendedFabButtonIcon:
+                                        icon: "exit-run"
+                        
+                                    MDExtendedFabButtonText:
+                                        text: "خروج"
+                                        theme_font_name: "Custom"
+                                        font_name: "nasalization"
+                                        theme_font_size : "Custom"
+                                        font_size: "22dp"
+
+
+    NavDrawer:
+        id: nav_drawer
+
+
+ResponsiveView:
+    id: login
+    name: "login"
