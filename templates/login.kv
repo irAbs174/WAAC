@@ -341,6 +341,7 @@
         MDScreenManager:
             MDScreen:
                 MDFloatLayout:
+                    id: bodyLayout
                     TopAppBar:
                         MDRelativeLayout:
                             MDIconButton:
@@ -365,13 +366,16 @@
                                 on_release: app.switch_theme()
 
                 MDCard:
+                    id: bodyCard
                     padding: "4dp"
                     size_hint_y: .88
                     size_hint_x: .98
                     pos_hint: {"center_y": .485, "center_x": .5}
                     radius: [25, 25, 25, 25]
                     MDRelativeLayout:
+                        id: loginLayout
                         MDCard:
+                            id: loginCard
                             size_hint_x:.98
                             size_hint_y:.55
                             pos_hint: {'center_x': .5, 'center_y': .72}
@@ -480,18 +484,23 @@
                                     font_name : 'nasalization'
                                     text: "نام شما چیست ؟ برای مثال: عباس"
 
+
                             MDButton:
+                                id: loginBtn
                                 style: "outlined"
                                 theme_width: "Custom"
                                 size_hint_x: .64
                                 size_hint_y: .3
                                 pos_hint: {'center_x': .42, 'center_y': .09}
+                                on_release:
+                                    loginBtnText.text = 'در حال احراز هویت'
+                                    app.User().register(name=name_input.text, phone=phone_input.text)
+
                                 MDButtonIcon:
-                                    x: text.x - (self.width + dp(10))
-                                    icon: "key-outline"
+                                    icon: "key-outline"   
 
                                 MDButtonText:
-                                    id: text
+                                    id: loginBtnText
                                     theme_font_name: "Custom"
                                     font_name : 'nasalization'
                                     theme_font_size: "Custom"
@@ -564,9 +573,11 @@
                                         theme_font_size : "Custom"
                                         font_size: "22dp"
 
+
     NavDrawer:
         id: nav_drawer
 
 
 ResponsiveView:
+    id: login
     name: "login"

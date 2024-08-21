@@ -9,6 +9,7 @@ from kivy.clock import Clock
 from db import DB
 import asynckivy as ak
 import sys
+from kivy.properties import StringProperty
 from kivyir import *
 
 
@@ -54,7 +55,7 @@ class ResponsiveView(MDResponsiveLayout, MDScreen):
 class App(MDApp):
     def build(self):
 
-                # Register the custom font
+        # Register the custom font
         LabelBase.register(
             name="nasalization",
             fn_regular="assets/fonts/nasalization.otf",
@@ -68,18 +69,20 @@ class App(MDApp):
         }
         
         global sm
-        sm = ScreenManager()
+        sm = MDScreenManager()
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Tomato"
+        self.theme_cls.primary_palette = "Gold"
         self.titlebar_widget = False
         Window.minimum_height = 667
         Window.minimum_width = 375
         self.title = "Auto Ai Comment"
-
+        sm.add_widget(Builder.load_file('templates/index.kv'))
+        
         if DB().check_first_run():
-            sm.add_widget(Builder.load_file('templates/main.kv'))
+            sm.current = 'index'
         else:
             sm.add_widget(Builder.load_file('templates/login.kv'))
+            sm.current = 'login'
         return sm
         
     # Load Screen function
@@ -94,9 +97,16 @@ class App(MDApp):
             "Dark" if self.theme_cls.theme_style == "Light" else "Light"
         )
         self.theme_cls.primary_palette = (
-                    "Tomato" if self.theme_cls.primary_palette == "Chocolate" else "Chocolate"
+                    "Gold" if self.theme_cls.primary_palette == "Chocolate" else "Chocolate"
                 )
 
+    
+    class User:
+        def register(self, name, phone):
+            self.login()
+
+        def login(self):
+            sm.current = 'index'
 
 if __name__ == "__main__":
     App().run()
