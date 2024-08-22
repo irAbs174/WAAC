@@ -490,7 +490,6 @@
                                 size_hint_y: .3
                                 pos_hint: {'center_x': .42, 'center_y': .09}
                                 on_release:
-                                    loginBtnText.text = 'در حال احراز هویت'
                                     app.User().register(name=name_input.text, phone=phone_input.text)
 
                                 MDButtonIcon:

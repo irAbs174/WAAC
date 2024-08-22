@@ -6,12 +6,14 @@ from kivy.factory import Factory
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivy.clock import Clock
+import requests as r
 from db import DB
 import asynckivy as ak
 import sys
 from kivy.properties import StringProperty
+from conf import host
 from kivyir import *
-
+import json
 
 # Theme Manager
 from kivymd.theming import ThemeManager
@@ -77,11 +79,10 @@ class App(MDApp):
         Window.minimum_width = 375
         self.title = "Auto Ai Comment"
         sm.add_widget(Builder.load_file('templates/index.kv'))
-        
+        sm.add_widget(Builder.load_file('templates/login.kv'))
         if DB().check_first_run():
             sm.current = 'index'
         else:
-            sm.add_widget(Builder.load_file('templates/login.kv'))
             sm.current = 'login'
         return sm
         
@@ -103,10 +104,11 @@ class App(MDApp):
     
     class User:
         def register(self, name, phone):
-            self.login()
-
-        def login(self):
+            res = r.post(f'{host}/user/register', json={'name':name, 'phone':phone}).json()
+            print(res)
+            DB().create_user_table(name, phone, res)
             sm.current = 'index'
+
 
 if __name__ == "__main__":
     App().run()
