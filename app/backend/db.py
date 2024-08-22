@@ -31,15 +31,15 @@ class DBUser:
         con, cur = self.connect()
         q = cur.execute("""SELECT name FROM user WHERE name=? AND phone = ?""", (name, phone)).fetchall()
         if q == []:
-            res = {'NOT ALLOWED'}
+            token = {'NOT ALLOWED'}
         else:
             token = secrets.token_hex(32)
-            res = cur.execute("""
+            cur.execute("""
                 UPDATE user SET token=? WHERE name=? and phone=?;
             """,(token, name, phone)).fetchall()
             con.commit()
             con.close()
-        return res
+        return token
 
     def register(self, name, phone):
         con, cur = self.connect()

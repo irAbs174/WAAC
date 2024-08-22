@@ -9,9 +9,10 @@ class UserRequest(BaseModel):
 
 app = FastAPI()
 
-@app.post('/user/register')
+@app.post('/user/auth')
 async def user_login(user: UserRequest):
-    db_user = DBUser()  # Create an instance of the DBUser class
-    token = db_user.check_user_allowed(user.name, user.phone)
+    u = DBUser()
+    u.check_user_table()
+    token = u.auth(user.name, user.phone)
     return token
 

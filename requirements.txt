@@ -1,3 +1,5 @@
+python-bidi
+arabic_reshaper
 kivy[base]
 https://github.com/kivymd/KivyMD/archive/master.zip
 kivyir

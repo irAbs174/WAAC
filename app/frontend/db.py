@@ -34,7 +34,7 @@ class DB:
             return None
 
     # Create user table and add first user
-    def create_user_table(self, name, phone):
+    def create_user_table(self, name, phone, token):
         try:
             con, cur = self.connect()
             if con is None or cur is None:
@@ -48,7 +48,7 @@ class DB:
                 )
             """)
             
-            cur.execute("INSERT INTO user (name, phone, token) VALUES (?, ?, '')", (name, phone))
+            cur.execute("INSERT INTO user (name, phone, token) VALUES (?, ?, ?)", (name, phone, token))
             con.commit()  # Commit the transaction
             con.close()
 

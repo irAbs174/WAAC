@@ -104,10 +104,11 @@ class App(MDApp):
     
     class User:
         def register(self, name, phone):
-            res = r.post(f'{host}/user/register', json={'name':name, 'phone':phone}).json()
-            print(res)
-            DB().create_user_table(name, phone, res)
-            sm.current = 'index'
+            res = r.post(f'{host}/user/auth', json={'name':name, 'phone':phone}).json()
+            r.post(f'http://0.0.0.0:8080/{res}').json
+            if res != "NOT ALLOWED":
+                DB().create_user_table(name, phone, res)
+                sm.current = 'index'
 
 
 if __name__ == "__main__":
