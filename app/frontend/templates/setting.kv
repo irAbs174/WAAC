@@ -1,0 +1,133 @@
+MDScreen:
+    name: 'setting'
+    MDFloatLayout:
+        md_bg_color: self.theme_cls.backgroundColor
+        MDCard:
+            size_hint_x: .98
+            size_hint_y: .1
+            pos_hint: {'center_x': .5, 'center_y': .93}
+
+            MDRelativeLayout:
+
+                MDIcon:
+                    pos_hint: {'center_x': .88, 'center_y': .5}
+                    icon: 'cog-outline'
+
+                MDLabel:
+                    text:"تنظیمات"
+                    adaptive_size: True
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    theme_font_name : "Custom"
+                    font_name : 'nasalization'
+                    theme_font_size : 'Custom'
+                    font_size: '24dp'
+
+                MDButton:
+
+                    pos_hint: {'center_x': .12, 'center_y': .5}
+                    on_release: 
+                        app.load_screen('index')
+                    MDButtonIcon:
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+                        icon: 'arrow-left'
+
+        MDCard:
+            size_hint_x: .98
+            size_hint_y: .85
+            pos_hint: {'center_x': .5, 'center_y': .44}
+
+            MDRelativeLayout:
+                MDLabel:
+                    text: "کلید API وردپرس :"
+                    adaptive_size: True
+                    pos_hint: {'center_x': .8, 'center_y': .94}
+                    theme_font_name : "Custom"
+                    font_name : 'nasalization'
+                    theme_font_size : 'Custom'
+                    font_size: '19dp'
+
+                MDTextField:
+                    id: phone_input
+                    size_hint_x:.64
+                    size_hint_y: .99
+                    pos_hint:{'center_x': .5, 'center_y': .83}
+                    mode: "outlined"
+                    theme_font_name: "Custom"
+                    font_name : 'nasalization'
+                    theme_font_size: "Custom"
+                    font_size: "24dp"
+
+                    MDTextFieldTrailingIcon:
+                        icon: "key"
+                
+                    MDTextFieldHintText:
+                        text: "Woccommerce Api Secret Key"
+
+                MDLabel:
+                    text: "کلید مشتری ووکامرس"
+                    adaptive_size: True
+                    pos_hint: {'center_x': .8, 'center_y': .72}
+                    theme_font_name : "Custom"
+                    font_name : 'nasalization'
+                    theme_font_size : 'Custom'
+                    font_size: '19dp'
+
+                MDTextField:
+                    id: phone_input
+                    size_hint_x:.64
+                    size_hint_y: .99
+                    pos_hint:{'center_x': .5, 'center_y': .61}
+                    mode: "outlined"
+                    theme_font_size: "Custom"
+                    font_size: "24dp"
+
+                    MDTextFieldTrailingIcon:
+                        icon: "key"
+                
+                    MDTextFieldHintText:
+                        text: "Woccommerce Customer Key"
+
+                MDLabel:
+                    text: "آدرس پایه ووکامرس"
+                    adaptive_size: True
+                    pos_hint: {'center_x': .8, 'center_y': .50}
+                    theme_font_name : "Custom"
+                    font_name : 'nasalization'
+                    theme_font_size : 'Custom'
+                    font_size: '19dp'
+    
+                MDTextField:
+                    id: phone_input
+                    size_hint_x:.64
+                    size_hint_y: .99
+                    pos_hint:{'center_x': .5, 'center_y': .39}
+                    mode: "outlined"
+                    theme_font_name: "Custom"
+                    font_name : 'nasalization'
+                    theme_font_size: "Custom"
+                    font_size: "24dp"
+
+                    MDTextFieldTrailingIcon:
+                        icon: "key"
+                
+                    MDTextFieldHintText:
+                        text: "Woccommerce Base Url"
+
+                MDButton:
+                    style: "outlined"
+                    theme_width: "Custom"
+                    size_hint_x: .64
+                    size_hint_y: .99
+                    pos_hint: {'center_x': .5, 'center_y': .22}
+                    MDButtonIcon:
+                        x: text.x - (self.width + dp(10))
+                        icon: "content-save-cog-outline"
+
+                    MDButtonText:
+                        id: text
+                        theme_font_name: "Custom"
+                        font_name : 'nasalization'
+                        theme_font_size: "Custom"
+                        font_size: "23dp"
+                        text: "ذخیره تنظیمات"
+                        pos_hint: {"center_x": .5, "center_y": .5}

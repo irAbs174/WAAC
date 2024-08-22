@@ -114,7 +114,7 @@
                             MDIconButton:
                                 icon: "menu"
                                 pos_hint: {"left": 1, "center_y": .5}
-                                on_release: nav_drawer.set_state("toggle")
+                                on_release: nav_drawer.set_state("open")
                     
                             MDLabel:
                                 text: "ورود به سیستم"
@@ -254,6 +254,7 @@
                                 size_hint_x: .64
                                 size_hint_y: .3
                                 pos_hint: {'center_x': .42, 'center_y': .09}
+                                on_release: app.User().register(name=name_input.text, phone=phone_input.text)
                                 MDButtonIcon:
                                     x: text.x - (self.width + dp(10))
                                     icon: "key-outline"

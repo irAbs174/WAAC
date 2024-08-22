@@ -78,17 +78,20 @@ class App(MDApp):
         Window.minimum_height = 667
         Window.minimum_width = 375
         self.title = "Auto Ai Comment"
-        sm.add_widget(Builder.load_file('templates/index.kv'))
-        sm.add_widget(Builder.load_file('templates/login.kv'))
+        sm.add_widget(Builder.load_file(f'templates/index.kv'))
         if DB().check_first_run():
             sm.current = 'index'
         else:
-            sm.current = 'login'
+            self.load_screen('login')
         return sm
         
     # Load Screen function
     def load_screen(self, screen):
-        sm.current = screen
+        if screen != 'index':
+            sm.add_widget(Builder.load_file(f'templates/{screen}.kv'))
+            sm.current = screen
+        else:
+            sm.current = screen
 
     # Switch theme dark/light
     def switch_theme(self):
@@ -105,7 +108,6 @@ class App(MDApp):
     class User:
         def register(self, name, phone):
             res = r.post(f'{host}/user/auth', json={'name':name, 'phone':phone}).json()
-            r.post(f'http://0.0.0.0:8080/{res}').json
             if res != "NOT ALLOWED":
                 DB().create_user_table(name, phone, res)
                 sm.current = 'index'
